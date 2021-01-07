@@ -1,0 +1,9 @@
+python==3.8.5
+grpcio==1.33.2
+h5py==2.10.0
+keyboard==0.13.5
+matplotlib==3.3.2
+numpy==1.19.2
+tensorflow-gpu==2.2.0
+tensorflow-probability==0.10.1
+tensorlayer==2.2.3
