@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+message NDarray {
+    bytes data = 1;
+}
+
+message Empty {}
+
+message Shape {
+    repeated int32 dim =1;
+}
+
+message InitRequest {
+    repeated Shape observation_shapes = 1;
+    Shape action_shape = 2;
+}
+message ObservationsRequest {
+    repeated NDarray observations = 1;
+}
+message ActionResponse {
+    NDarray action = 1;
+}
+
+service RaspiMessage{
+    rpc Init(InitRequest) returns (Empty);
+    rpc GetAction (ObservationsRequest) returns (ActionResponse);
+}
+
+// python -m grpc_tools.protoc -I. --python_out=. --grpc_python_out=. .\raspi_message.proto
